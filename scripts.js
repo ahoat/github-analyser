@@ -1,4 +1,6 @@
-let user = "ahoat";
+const searchBtn = document.querySelector("#search-btn");
+const userInput = document.querySelector(".search-box");
+let user = userInput.Value;
 
 function getUser(user) {
     return fetch(`https://api.github.com/users/${user}`)
