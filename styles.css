@@ -1,6 +1,7 @@
 .container {
     display: flex;
     justify-content: center;
+    padding-top: 3rem;
     
 }
 
@@ -8,4 +9,15 @@
     max-width: 70vw;
     margin-left: auto;
     margin-right: auto;
+}
+
+.chart {
+    width: 30vw;
+    height:20vh;
+    border: 1px solid red;
+}
+
+.search-box {
+    width: 20rem;
+    border-radius: 9px;
 }
