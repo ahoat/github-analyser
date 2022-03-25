@@ -1,8 +1,7 @@
 .container {
     display: flex;
     justify-content: center;
-    padding-top: 3rem;
-    
+    padding-top: 3rem;   
 }
 
 .center {
@@ -11,13 +10,28 @@
     margin-right: auto;
 }
 
-.chart {
-    width: 30vw;
-    height:20vh;
-    border: 1px solid red;
+form {
+    display: grid;
+    grid-template-rows: 1fr,1fr;
+    gap: 1rem;
 }
 
 .search-box {
     width: 20rem;
+    height: 2rem;
     border-radius: 9px;
+    text-align: center;
+}
+
+.search-btn {
+    width: 12rem;
+    height:1.5rem;
+}
+
+.charts {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    gap: 1em;
 }
