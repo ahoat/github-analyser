@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@200&display=swap');
+
+main {
+    font-family: 'Playfair Display', 'Poppins', sans-serif;
+ 
+}
 .container {
     display: flex;
     justify-content: center;
@@ -28,10 +34,28 @@ form {
     height:1.5rem;
 }
 
+img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100px;
+    border: 7px solid salmon;
+    margin-top: 2rem;
+    animation: avatar-load 1000ms;
+}
+
 .charts {
     margin-top: 1rem;
     display: flex;
     justify-content: center;
     flex-flow: row wrap;
     gap: 1em;
+}
+
+@keyframes avatar-load {
+    0% {
+        transform: translateX(1000%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }
