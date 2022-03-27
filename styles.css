@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
 main {
-    font-family: 'Playfair Display', 'Poppins', sans-serif;
- 
+    font-family: 'DotGothic16', sans-serif;
+    font-weight: 600;
 }
 .container {
     display: flex;
@@ -20,6 +20,7 @@ form {
     display: grid;
     grid-template-rows: 1fr,1fr;
     gap: 1rem;
+    font-family: 'DotGothic16', sans-serif;
 }
 
 .search-box {
@@ -27,6 +28,7 @@ form {
     height: 2rem;
     border-radius: 9px;
     text-align: center;
+    font-family: inherit;
 }
 
 .search-btn {
@@ -35,6 +37,7 @@ form {
     cursor: pointer;
     background-color: rgba(43, 90, 245, 0.4);
     color: rgb(2, 9, 10);
+    font-family: inherit;
 }
 
 
