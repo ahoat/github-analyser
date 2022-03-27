@@ -8,10 +8,8 @@ form.addEventListener("submit", (e) => {
     const username = userInput.value;
     const userURL = `https://api.github.com/users/${username}`;
     headlines(userURL);
-   // getUser(userURL);
     getrepos(userURL);
-    //getAvatar(username);
-    // console.log(username.followers.value);
+    form.reset();
       
 });
 
@@ -40,7 +38,7 @@ async function headlines (user) {
     let avatar = document.createElement("img");
     avatar.src = userData.avatar_url
     let userName = createPElement();
-    userName.appendChild(document.createTextNode(`Username : ${userInput.value}`))
+    userName.appendChild(document.createTextNode(`Username : ${userData.login}`))
     let location = createPElement();
     location.appendChild(document.createTextNode(`Location : ${userData.location}`));
     let followersNum = createPElement();
@@ -52,6 +50,7 @@ async function headlines (user) {
     headlineData.appendChild(location);
     headlineData.appendChild(followersNum);
     headlineData.appendChild(followingNum);
+    return;
 }
 
 async function getrepos(user) {
@@ -59,12 +58,3 @@ async function getrepos(user) {
     console.log(repos);
        
           };
-
-
-//need to figure out how to get the user's avatar.
-function getAvatar(user) {
-    return fetch(`https://avatars.githubusercontent.com/u/${user.id}?v=4`)
-            .then((result) => result.json())
-            .then((user) => console.log(user))
-            .catch((error) => console.log(error))
-              };

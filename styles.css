@@ -7,7 +7,7 @@ main {
 .container {
     display: flex;
     justify-content: center;
-    padding-top: 3rem;   
+    padding-top: 1.5rem;   
 }
 
 .center {
@@ -32,15 +32,33 @@ form {
 .search-btn {
     width: 12rem;
     height:1.5rem;
+    cursor: pointer;
+    background-color: rgba(43, 90, 245, 0.4);
+    color: rgb(2, 9, 10);
 }
 
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+
 img {
-    width: 5rem;
-    height: 5rem;
+    width: 7rem;
+    height: 7rem;
     border-radius: 100px;
-    border: 7px solid salmon;
-    margin-top: 2rem;
+    border: 5px solid salmon;
+    margin-top: 1vh;
     animation: avatar-load 1000ms;
+}
+
+.userInfo {
+
+    animation: info-load 1800ms;
+    padding-top: 1vh;
+
 }
 
 .charts {
@@ -52,6 +70,14 @@ img {
 }
 
 @keyframes avatar-load {
+    0% {
+        transform: translateX(1000%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+@keyframes info-load {
     0% {
         transform: translateX(1000%);
     }
