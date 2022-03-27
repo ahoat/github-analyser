@@ -2,6 +2,7 @@ const form = document.querySelector("form");
 const searchBtn = document.querySelector("#search-btn");
 const userInput = document.querySelector(".search-box");
 const headlineData = document.querySelector(".headline-data");
+const starredList = document.querySelector(".starred-list");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -9,6 +10,7 @@ form.addEventListener("submit", (e) => {
     const userURL = `https://api.github.com/users/${username}`;
     headlines(userURL);
     getrepos(userURL);
+    getStarred(userURL);
     form.reset();
       
 });
@@ -58,3 +60,15 @@ async function getrepos(user) {
     console.log(repos);
        
           };
+
+async function getStarred(user) {
+    const starredData = await fetchData(`${user}/starred`);
+    for (let i = 0; i < starredData.length; i++) {
+        let li = document.createElement("li");
+        console.log(starredData[i].url);
+    }
+    starredList.appendChild(document.createTextNode(`⭐ : ${starredData.length}`));
+  
+
+
+    };
