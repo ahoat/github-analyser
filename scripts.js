@@ -1,9 +1,12 @@
+//----------------- grab HTML elements -------------------------
+
 const form = document.querySelector("form");
 const searchBtn = document.querySelector("#search-btn");
 const userInput = document.querySelector(".search-box");
 const headlineData = document.querySelector(".headline-data");
 const starredList = document.querySelector(".starred-list");
 
+//------------------form/button event listener----------------
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     const username = userInput.value;
@@ -15,11 +18,10 @@ form.addEventListener("submit", (e) => {
       
 });
 
+//--------------get user data HTTP request-------------------
 async function fetchData(user) {
-    
         const response = await fetch(user);
         const data = await response.json();
-    
         if (!response.ok) {
             throw new Error(`User not found: ${response.status} ${data.message}`);
         } else {
@@ -27,13 +29,14 @@ async function fetchData(user) {
          }
     }
 
-
+// ----------reusable function to create p elements-----------------
 function createPElement(){
     let p = document.createElement("p");
     p.classList.add("userInfo")
     return p;
 }
 
+// ----------------------Create headline data items -----------------
 async function headlines (user) {
     const userData = await fetchData(`${user}`);
     console.log(userData);
@@ -61,14 +64,19 @@ async function getrepos(user) {
        
           };
 
+//-----------------Create list of starred repos--------------------------          
+
 async function getStarred(user) {
     const starredData = await fetchData(`${user}/starred`);
+    starredList.appendChild(document.createTextNode(`⭐ : ${starredData.length}`));
     for (let i = 0; i < starredData.length; i++) {
         let li = document.createElement("li");
+        let a = document.createElement("a");
+        let link = document.createTextNode(`${starredData[i].html_url}`);
+        a.appendChild(link);
+        a.href = `${starredData[i].html_url}`
+        li.appendChild(a);
+        starredList.appendChild(li);
         console.log(starredData[i].url);
     }
-    starredList.appendChild(document.createTextNode(`⭐ : ${starredData.length}`));
-  
-
-
     };

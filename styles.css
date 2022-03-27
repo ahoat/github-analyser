@@ -64,6 +64,15 @@ img {
 
 }
 
+ul {
+    animation: info-load 1800ms;
+}
+
+li {
+    list-style: none;
+    animation: info-load 1800ms;
+}
+
 .charts {
     margin-top: 1rem;
     display: flex;
