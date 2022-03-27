@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
-main {
+body {
     font-family: 'DotGothic16', sans-serif;
     font-weight: 600;
+    background-color: rgb(187, 191, 196);
 }
 .container {
     display: flex;
