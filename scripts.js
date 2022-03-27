@@ -77,6 +77,5 @@ async function getStarred(user) {
         a.href = `${starredData[i].html_url}`
         li.appendChild(a);
         starredList.appendChild(li);
-        console.log(starredData[i].url);
     }
     };
