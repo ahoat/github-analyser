@@ -14,6 +14,7 @@ form.addEventListener("submit", (e) => {
     headlines(userURL);
     getrepos(userURL);
     getStarred(userURL);
+    getEvent(userURL);
     form.reset();
       
 });
@@ -79,3 +80,52 @@ async function getStarred(user) {
         starredList.appendChild(li);
     }
     };
+
+    //----------------- Events--------------------------          
+
+
+
+async function getEvent(user) {
+    const events = await fetchData(`${user}/events`);
+    let eventArr= [];
+    const xLabel = [];
+    for (let i =0; i < events.length; i++) {
+        eventArr.push(events[i].type);  
+    }
+    xLabel.push(...new Set(eventArr))
+    };
+
+
+    // Charts test ONLY.  Delete for live
+
+    const labels = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+      ];
+    
+      const data = {
+        labels: labels,
+        datasets: [{
+          label: 'My First dataset',
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: [0, 10, 5, 2, 20, 30, 45],
+        }]
+      };
+    
+      const config = {
+        type: 'bar',
+        data: data,
+        options: {}
+      };
+
+    const myChart = new Chart(
+        document.getElementById('chart1').getContext("2d"),
+        config
+      );
+
+

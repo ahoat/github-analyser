@@ -81,6 +81,8 @@ li {
     justify-content: center;
     flex-flow: row wrap;
     gap: 1em;
+    width: 20rem;
+    height: 15rem;
 }
 
 @keyframes avatar-load {
