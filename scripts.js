@@ -143,7 +143,7 @@ function barChart (obj) {
         document.getElementById('chart1').getContext("2d"),
         config
       );
-   
+      
 }
 
 
