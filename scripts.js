@@ -88,11 +88,19 @@ async function getStarred(user) {
 async function getEvent(user) {
     const events = await fetchData(`${user}/events`);
     let eventArr= [];
-    const xLabel = [];
+    const eventObj = {};
+    
     for (let i =0; i < events.length; i++) {
         eventArr.push(events[i].type);  
     }
-    xLabel.push(...new Set(eventArr))
+
+    for(let i = 0; i < eventArr.length; ++i) {
+        if(!eventObj[eventArr[i]])
+            eventObj[eventArr[i]] = 0;
+        ++eventObj[eventArr[i]];
+    }
+    console.log(eventObj);
+    return eventObj;
     };
 
 
