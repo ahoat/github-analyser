@@ -6,7 +6,6 @@ const userInput = document.querySelector(".search-box");
 const headlineData = document.querySelector(".headline-data");
 const starredList = document.querySelector(".starred-list");
 
-// const token = "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"
 
 //------------------form/button event listener----------------
 form.addEventListener("submit", (e) => {
@@ -44,6 +43,7 @@ async function headlines (user) {
     const userData = await fetchData(`${user}`);
     console.log(userData);
     let avatar = document.createElement("img");
+    avatar.classList.add("avatarImg");
     avatar.src = userData.avatar_url
     let userName = createPElement();
     userName.appendChild(document.createTextNode(`Username : ${userData.login}`))
