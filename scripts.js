@@ -85,9 +85,7 @@ async function getStarred(user) {
     };
 
     //----------------- Events--------------------------          
-
-
-
+    
 async function getEvent(user) {
     const events = await fetchData(`${user}/events`);
     let eventArr= [];
