@@ -103,13 +103,3 @@ li {
         transform: translateX(0%);
     }
 }
-
-header > * {
-    display: flex;
-    max-width: 5rem;
-    animation: none; 
-    border: none;
-    background-color: aquamarine;
-    height: 6rem;
-    margin: 0.7rem;
-}

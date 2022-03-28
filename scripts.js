@@ -38,8 +38,16 @@ function createPElement(){
     return p;
 }
 
+// ----------------reusable function to delete all child nodes--------
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
 // ----------------------Create headline data items -----------------
 async function headlines (user) {
+    removeAllChildNodes(headlineData);
     const userData = await fetchData(`${user}`);
     console.log(userData);
     let avatar = document.createElement("img");
@@ -69,6 +77,7 @@ async function getrepos(user) {
 //-----------------Create list of starred repos--------------------------          
 
 async function getStarred(user) {
+    removeAllChildNodes(starredList);
     const starredData = await fetchData(`${user}/starred`);
     starredList.appendChild(document.createTextNode(`⭐ : ${starredData.length}`));
     for (let i = 0; i < starredData.length; i++) {
@@ -105,7 +114,7 @@ async function getEvent(user) {
     };
 
 
-    // Charts test ONLY.  Delete for live
+// --------Create charts----------
 
 function barChart (obj) {
 
@@ -121,7 +130,7 @@ function barChart (obj) {
         data: Object.values(obj),
     }]
     };
-    
+
       const config = {
         type: 'bar',
         data: data,
@@ -134,6 +143,7 @@ function barChart (obj) {
         document.getElementById('chart1').getContext("2d"),
         config
       );
+   
 }
 
 
