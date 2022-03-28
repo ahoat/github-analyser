@@ -114,8 +114,9 @@ function barChart (obj) {
     const data = {
     labels: labels,
     datasets: [{
-        label: 'Events',
-        backgroundColor: 'rgb(55, 99, 132)',
+        label: 'Recent Activity',
+        backgroundColor: ['rgb(55, 99, 132)', 'rgb(155, 99, 132)', 'rgb(332, 231, 23)'
+        , 'rgb(88, 29, 353)', 'rgb(255, 99, 132)', 'rgb(222, 192, 100)','rgb(73, 112, 10)'],
         borderColor: 'rgb(255, 99, 132)',
         data: Object.values(obj),
     }]
@@ -124,13 +125,15 @@ function barChart (obj) {
       const config = {
         type: 'bar',
         data: data,
-        options: {}
+        options: {
+            indexAxis: 'y',
+        }
       };
 
     const myChart = new Chart(
         document.getElementById('chart1').getContext("2d"),
         config
       );
-    }
+}
 
 
