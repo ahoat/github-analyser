@@ -56,7 +56,6 @@ async function headlines (user) {
     headlineData.appendChild(location);
     headlineData.appendChild(followersNum);
     headlineData.appendChild(followingNum);
-    return;
 }
 
 async function getrepos(user) {
@@ -89,7 +88,7 @@ async function getEvent(user) {
     const events = await fetchData(`${user}/events`);
     let eventArr= [];
     const eventObj = {};
-    
+
     for (let i =0; i < events.length; i++) {
         eventArr.push(events[i].type);  
     }
@@ -99,41 +98,34 @@ async function getEvent(user) {
             eventObj[eventArr[i]] = 0;
         ++eventObj[eventArr[i]];
     }
-    console.log(eventObj);
+    console.log(Object.keys(eventObj));
     return eventObj;
     };
 
 
     // Charts test ONLY.  Delete for live
 
-    const labels = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-      ];
+    // const labels = Object.keys(getEvent())
     
-      const data = {
-        labels: labels,
-        datasets: [{
-          label: 'My First dataset',
-          backgroundColor: 'rgb(255, 99, 132)',
-          borderColor: 'rgb(255, 99, 132)',
-          data: [0, 10, 5, 2, 20, 30, 45],
-        }]
-      };
+    //   const data = {
+    //     labels: labels,
+    //     datasets: [{
+    //       label: 'My First dataset',
+    //       backgroundColor: 'rgb(255, 99, 132)',
+    //       borderColor: 'rgb(255, 99, 132)',
+    //       data: Object.values(getEvent()),
+    //     }]
+    //   };
     
-      const config = {
-        type: 'bar',
-        data: data,
-        options: {}
-      };
+    //   const config = {
+    //     type: 'bar',
+    //     data: data,
+    //     options: {}
+    //   };
 
-    const myChart = new Chart(
-        document.getElementById('chart1').getContext("2d"),
-        config
-      );
+    // const myChart = new Chart(
+    //     document.getElementById('chart1').getContext("2d"),
+    //     config
+    //   );
 
 
