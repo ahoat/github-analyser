@@ -6,6 +6,8 @@ const userInput = document.querySelector(".search-box");
 const headlineData = document.querySelector(".headline-data");
 const starredList = document.querySelector(".starred-list");
 
+// const token = "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"
+
 //------------------form/button event listener----------------
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -99,33 +101,36 @@ async function getEvent(user) {
         ++eventObj[eventArr[i]];
     }
     console.log(Object.keys(eventObj));
-    return eventObj;
+    barChart(eventObj);
     };
 
 
     // Charts test ONLY.  Delete for live
 
-    // const labels = Object.keys(getEvent())
-    
-    //   const data = {
-    //     labels: labels,
-    //     datasets: [{
-    //       label: 'My First dataset',
-    //       backgroundColor: 'rgb(255, 99, 132)',
-    //       borderColor: 'rgb(255, 99, 132)',
-    //       data: Object.values(getEvent()),
-    //     }]
-    //   };
-    
-    //   const config = {
-    //     type: 'bar',
-    //     data: data,
-    //     options: {}
-    //   };
+function barChart (obj) {
 
-    // const myChart = new Chart(
-    //     document.getElementById('chart1').getContext("2d"),
-    //     config
-    //   );
+    const labels = Object.keys(obj)
+
+    const data = {
+    labels: labels,
+    datasets: [{
+        label: 'Events',
+        backgroundColor: 'rgb(55, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: Object.values(obj),
+    }]
+    };
+    
+      const config = {
+        type: 'bar',
+        data: data,
+        options: {}
+      };
+
+    const myChart = new Chart(
+        document.getElementById('chart1').getContext("2d"),
+        config
+      );
+    }
 
 

@@ -82,8 +82,10 @@ li {
     flex-flow: row wrap;
     gap: 1em;
     width: 20rem;
-    height: 15rem;
+    height: 12rem;
 }
+
+
 
 @keyframes avatar-load {
     0% {
