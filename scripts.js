@@ -5,6 +5,7 @@ const searchBtn = document.querySelector("#search-btn");
 const userInput = document.querySelector(".search-box");
 const headlineData = document.querySelector(".headline-data");
 const starredList = document.querySelector(".starred-list");
+const avatarImg = document.querySelector(".avatar-img");
 
 
 //------------------form/button event listener----------------
@@ -41,6 +42,7 @@ function createPElement(){
 // ----------------------Create headline data items -----------------
 async function headlines (user) {
     headlineData.textContent ="";
+    avatarImg.textContent = "";
     const userData = await fetchData(`${user}`);
     console.log(userData);
     let avatar = document.createElement("img");
@@ -54,7 +56,7 @@ async function headlines (user) {
     followersNum.appendChild(document.createTextNode(`Followers : ${userData.followers}`));
     let followingNum = createPElement();
     followingNum.appendChild(document.createTextNode(`Following : ${userData.following}`));
-    headlineData.appendChild(avatar);
+    avatarImg.appendChild(avatar);
     headlineData.appendChild(userName);
     headlineData.appendChild(location);
     headlineData.appendChild(followersNum);

@@ -60,10 +60,21 @@ img {
     animation: avatar-load 1000ms;
 }
 
+.column > * + * {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0rem;
+  }
+
+.gap {
+    gap: 6rem;
+}
+
+
 .userInfo {
 
     animation: info-load 1800ms;
-    padding-top: 1vh;
+    padding: none;
 
 }
 
