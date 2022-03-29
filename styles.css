@@ -115,3 +115,8 @@ li {
         transform: translateX(0%);
     }
 }
+
+@media screen and (max-width: 415px) {
+    .gap { gap: 1rem}
+    
+}
